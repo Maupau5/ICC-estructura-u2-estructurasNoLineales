@@ -1,6 +1,7 @@
 import java.util.List;
 
 import main.Ejercicio_03_listLeves.ListLeves;
+import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolRecorridos;
 import main.Materia.Models.Node;
@@ -10,7 +11,8 @@ public class App {
         System.out.println("Hello, World!");
         // runArbolBinario();
         // runArbolRecorridos();
-        runListLeves();
+        //runListLeves();
+        runArbolAVL();
     }
 
     public static void runArbolBinario() {
@@ -46,7 +48,7 @@ public class App {
         System.out.println("\nPosorden:");
         arbolRecorridos.posOrderRecursivo(arbolRecorridos.getRoot());
     }
-
+/* 
     public static void runListLeves() {
         ListLeves listLeves = new ListLeves();
         Node root = new Node(40);
@@ -67,6 +69,22 @@ public class App {
         for (List<Integer> level : result) {
             System.out.println(level);
         }
+    }
+*/
+    public static void runArbolAVL() {
+        ArbolAVL arbolAVL = new ArbolAVL();
+
+        int[] valores = {10, 20, 15, 24, 9, 8, 21, 23, 50, 25};
+
+        for (int valor : valores) {
+            System.out.println("\nInsertando el valor: " + valor);
+            arbolAVL.insert(valor);
+            System.out.println("\nEstructura del árbol AVL después de la inserción:");
+            arbolAVL.printTree();
+        }
+
+        System.out.println("\nÁrbol AVL completo:");
+        arbolAVL.printTree();
     }
 
 }
