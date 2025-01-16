@@ -48,4 +48,11 @@ public class ArbolBinario {
     public Node getRoot() {
         return root;
     }
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.getLeft());
+            System.out.print(node.getValue() + " ");
+            inOrder(node.getRight());
+        }
+    }
 }

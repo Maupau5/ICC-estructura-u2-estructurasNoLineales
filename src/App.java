@@ -1,6 +1,9 @@
 import java.util.List;
 
+import main.Ejercicio_01_insert.InsertBSTTest;
+import main.Ejercicio_02_invert.InvertBinaryTree;
 import main.Ejercicio_03_listLeves.ListLeves;
+import main.Ejercicio_04_depth.Depth;
 import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolRecorridos;
@@ -12,7 +15,16 @@ public class App {
         // runArbolBinario();
         // runArbolRecorridos();
         //runListLeves();
-        runArbolAVL();
+        //runArbolAVL();
+
+        System.out.println("\n=== Ejecución del Binary Search Tree ===");
+        runInsertBSTTest();
+
+        System.out.println("\n=== Ejecución de Invertir Árbol Binario ===");
+        runInvertBinaryTree();
+
+        System.out.println("\n=== Ejecución de Profundidad Máxima ===");
+        runDepth();
     }
 
     public static void runArbolBinario() {
@@ -70,7 +82,7 @@ public class App {
             System.out.println(level);
         }
     }
-*/
+
     public static void runArbolAVL() {
         ArbolAVL arbolAVL = new ArbolAVL();
 
@@ -85,6 +97,51 @@ public class App {
 
         System.out.println("\nÁrbol AVL completo:");
         arbolAVL.printTree();
+    }
+*/
+    public static void runInsertBSTTest() {
+        InsertBSTTest bst = new InsertBSTTest();
+        int[] valores = {5, 3, 7, 2, 4, 6, 8};
+
+        for (int valor : valores) {
+            System.out.println("Insertando el valor: " + valor);
+            bst.insert(valor);
+        }
+
+        System.out.println("\nRecorrido InOrder del BST:");
+        bst.inOrder();
+    }
+
+    public static void runInvertBinaryTree() {
+        InvertBinaryTree invertBinaryTree = new InvertBinaryTree();
+        Node root = new Node(4);
+        root.setLeft(new Node(2));
+        root.setRight(new Node(7));
+        root.getLeft().setLeft(new Node(1));
+        root.getLeft().setRight(new Node(3));
+        root.getRight().setLeft(new Node(6));
+        root.getRight().setRight(new Node(9));
+
+        System.out.println("\nÁrbol binario original en preorden:");
+        invertBinaryTree.preOrder(root);
+
+        Node invertedRoot = invertBinaryTree.invert(root);
+        System.out.println("\n\nÁrbol binario invertido en preorden:");
+        invertBinaryTree.preOrder(invertedRoot);
+    }
+
+    public static void runDepth() {
+        Depth binaryTreeDepth = new Depth();
+        Node root = new Node(4);
+        root.setLeft(new Node(2));
+        root.setRight(new Node(7));
+        root.getLeft().setLeft(new Node(1));
+        root.getLeft().setRight(new Node(3));
+        root.getRight().setLeft(new Node(6));
+        root.getRight().setRight(new Node(9));
+
+        int depth = binaryTreeDepth.maxDepth(root);
+        System.out.println("\nProfundidad máxima del árbol binario: " + depth);
     }
 
 }
