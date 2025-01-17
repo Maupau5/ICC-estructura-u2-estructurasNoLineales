@@ -7,6 +7,7 @@ import main.Ejercicio_04_depth.Depth;
 import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolRecorridos;
+import main.Materia.Controllers.Graph;
 import main.Materia.Models.Node;
 
 public class App {
@@ -17,14 +18,16 @@ public class App {
         //runListLeves();
         //runArbolAVL();
 
-        System.out.println("\n=== Ejecución del Binary Search Tree ===");
-        runInsertBSTTest();
+        //System.out.println("\n=== Ejecución del Binary Search Tree ===");
+        //runInsertBSTTest();
 
-        System.out.println("\n=== Ejecución de Invertir Árbol Binario ===");
-        runInvertBinaryTree();
+        //System.out.println("\n=== Ejecución de Invertir Árbol Binario ===");
+        //runInvertBinaryTree();
 
-        System.out.println("\n=== Ejecución de Profundidad Máxima ===");
-        runDepth();
+        //System.out.println("\n=== Ejecución de Profundidad Máxima ===");
+        //runDepth();
+
+        runGraph();
     }
 
     public static void runArbolBinario() {
@@ -98,7 +101,7 @@ public class App {
         System.out.println("\nÁrbol AVL completo:");
         arbolAVL.printTree();
     }
-*/
+
     public static void runInsertBSTTest() {
         InsertBSTTest bst = new InsertBSTTest();
         int[] valores = {5, 3, 7, 2, 4, 6, 8};
@@ -142,6 +145,17 @@ public class App {
 
         int depth = binaryTreeDepth.maxDepth(root);
         System.out.println("\nProfundidad máxima del árbol binario: " + depth);
+    }
+*/
+    public static void runGraph() {
+        Graph grafo = new Graph();
+        grafo.addNode(5);
+        grafo.addNode(7);
+        grafo.addNode(9);
+        grafo.addNode(11);
+        grafo.addNode(3);
+
+        grafo.printGraph();
     }
 
 }
